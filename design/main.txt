@@ -1,0 +1,75 @@
+Simply Plotting
+###############
+
+This program describes simply plotting from an overall design point.
+
+Main Program Design
+===================
+
+Simply Plotting is an interactive and extensible data treatment and plotting
+program built around Matplotlib and Numpy.
+
+Data Flow
+---------
+
+In simple terms, Data Plots will reach the data to plots by referencing Data
+Containers, which in turn will be supplied with data once from a Data
+Importer. Read more about these main types below.
+
+Data Importers
+↳ Data Containers
+  ↳ Data Plots
+
+Interactive
+-----------
+
+The program should make it possible to select items to edit with the mouse and
+possibly add elements like arrows and text by mouse placement.
+
+Extensible
+----------
+
+Both Data Plots and Data Importers should be implemented with a specific
+interface and loaded on startup. This should make it possible to add new kinds
+of each of these elements by simple implementing the interface.
+
+Data Containers
+===============
+
+Data Containers will simply be a view into a lower level data structure like a
+numpy array. Several different kinds of Data Containers can be invisioned
+depending on the need. The first ones implemented will be:
+
+ * Data view: This Data Container will not allow any editing of the data and
+   will reprent it simply by a reduced ASCII version of the data.
+ * Data columns: This Data Container will allow adding data based on data
+   treatment of the existing columnes.
+ * Spreadsheet: This Data Container will allow editing data by hand in a
+   spreadsheet like fashion.
+
+More details on the data containers design in the data_containers.txt file.
+
+Data Plots
+==========
+
+The plots will be a standard Matplotlib figure, with the option to make
+subplots. Each of the subplots can be of several different types including:
+
+ * Line plot
+ * Bar plot
+ * ...
+
+More details on the plots design in the plots_design.txt file.
+
+Data Importers
+==============
+
+Data Importers should be able to produce data and metadata. The data importers
+should include:
+
+ * Text file importer: This data importer should be able to import CSV type
+   data.
+ * Database importer: This importer should be able to import data from a
+   database based on several different data base layouts.
+
+More details in the data_importers_design.txt.
